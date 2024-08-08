@@ -8,7 +8,7 @@ export default function RootLayout() {
       }}
     >
       <Stack.Screen
-        name="index"
+        name="(main)/(tabs)"
         options={{
           headerShown: false,
           title: "Hi",
