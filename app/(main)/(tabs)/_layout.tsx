@@ -43,8 +43,16 @@ export default function TabLayout() {
       <Tabs.Screen
         name="cards"
         options={{
-          headerShown: false,
-          headerTitle: "Cards",
+          headerStyle: {
+            backgroundColor: "#101829",
+            shadowColor: "transparent",
+          },
+          headerTitleStyle: {
+            color: "#fff",
+            fontSize: 20,
+            fontWeight: "700",
+          },
+          headerTitle: "Food Cash Card",
           title: "Cards",
           tabBarIcon: ({ color }) => (
             <MaterialIcons name="workspaces-outline" size={24} color={color} />

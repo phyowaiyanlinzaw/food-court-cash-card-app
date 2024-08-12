@@ -12,6 +12,7 @@ import { MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
 import { RPH, RPW } from "@/utils/dimensions";
 import Action from "@/components/ui/Action";
 import { dummyTransactionHistory } from "@/utils/data";
+import CashCard from "@/components/ui/CashCard";
 
 export default function index() {
   const [showBalance, setShowBalance] = useState(true);
@@ -97,14 +98,8 @@ export default function index() {
                 alignItems: "center",
               }}
             >
-              <View
-                style={{
-                  backgroundColor: "#6172F3",
-                  width: 90,
-                  height: 50,
-                  borderRadius: 4,
-                }}
-              />
+              <CashCard height={50} width={90} />
+
               <View
                 style={{
                   justifyContent: "center",
