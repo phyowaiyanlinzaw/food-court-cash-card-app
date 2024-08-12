@@ -16,21 +16,21 @@ export default function cards() {
       <StatusBar style="light" />
       <View
         style={{
-          marginBottom: 10,
+          marginBottom: 6,
         }}
       >
         <CashCardInfo cardNumber="**** **** **** 1234" name="John Doe" />
       </View>
       <View
         style={{
-          marginBottom: 10,
+          marginBottom: 6,
         }}
       >
         <CashCardInfo cardNumber="**** **** **** 1234" name="John Doe" />
       </View>
       <View
         style={{
-          marginBottom: 10,
+          marginBottom: 6,
         }}
       >
         <CashCardInfo cardNumber="**** **** **** 1234" name="John Doe" />
@@ -42,7 +42,7 @@ export default function cards() {
           flexDirection: "row",
           backgroundColor: "#1D2939",
           padding: 10,
-          height: RPH(15),
+          height: RPH(18),
           marginBottom: 10,
           gap: 10,
         }}

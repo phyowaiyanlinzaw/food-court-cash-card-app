@@ -24,7 +24,7 @@ export default function CashCardInfo({ cardNumber, name }: Props) {
           transform: [{ translateX: RPW(-35) }],
         }}
       >
-        <CashCard height={RPH(18)} width={RPW(80)} />
+        <CashCard height={RPH(17)} width={RPW(80)} />
       </View>
 
       <View
