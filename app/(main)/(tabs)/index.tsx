@@ -1,9 +1,17 @@
-import { View, Text, SafeAreaView, Platform, Image } from "react-native";
-import React from "react";
-import { MaterialIcons } from "@expo/vector-icons";
-import { StatusBar } from "expo-status-bar";
+import {
+  View,
+  Text,
+  SafeAreaView,
+  Platform,
+  Image,
+  Pressable,
+} from "react-native";
+import React, { useState } from "react";
+import { MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
+import { RPH, RPW } from "@/utils/dimensions";
 
 export default function index() {
+  const [showBalance, setShowBalance] = useState(true);
   return (
     <>
       <SafeAreaView
@@ -15,6 +23,7 @@ export default function index() {
         <View
           style={{
             padding: 20,
+            marginBottom: 20,
           }}
         >
           <View
@@ -134,18 +143,130 @@ export default function index() {
                 alignItems: "center",
               }}
             >
-              <MaterialIcons name="add-card" size={32} color={"#F9FAFB"} />
+              <MaterialIcons name="add-card" size={24} color={"#F9FAFB"} />
             </View>
           </View>
         </View>
+        <View
+          style={{
+            backgroundColor: "#101828",
+            height: "100%",
+          }}
+        >
+          <View
+            style={{
+              flexDirection: "row",
+              marginTop: RPH(10),
+            }}
+          >
+            <Text> Hi </Text>
+          </View>
+        </View>
       </SafeAreaView>
-      <View></View>
       <View
         style={{
-          backgroundColor: "#101828",
-          height: "100%",
+          position: "absolute",
+          backgroundColor: "#1D2939",
+          borderRadius: 10,
+          top: "30%",
+          padding: 20,
+          left: 0,
+          right: 0,
+          transform: [{ translateX: RPW(5) }],
+          width: RPW(90),
         }}
-      ></View>
+      >
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            marginBottom: 10,
+          }}
+        >
+          <Text
+            style={{
+              fontSize: 13,
+              color: "#98A2B3",
+              fontWeight: "500",
+            }}
+          >
+            Your Balance
+          </Text>
+          <Text
+            style={{
+              fontSize: 13,
+              color: "#98A2B3",
+              fontWeight: "500",
+            }}
+          >
+            1234 5678
+          </Text>
+        </View>
+        <View
+          style={{
+            flexDirection: "row",
+            gap: 20,
+            alignItems: "center",
+          }}
+        >
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "center",
+              alignItems: "baseline",
+              gap: 6,
+            }}
+          >
+            <Text
+              style={{
+                fontSize: 32,
+                color: "#F9FAFB",
+                textAlign: "right",
+              }}
+            >
+              {showBalance ? "5000" : "****"}
+            </Text>
+            <Text
+              style={{
+                fontSize: 16,
+                color: "#F9FAFB",
+                textAlign: "left",
+              }}
+            >
+              THB
+            </Text>
+          </View>
+          <View
+            style={{
+              height: 24,
+              width: 1,
+              backgroundColor: "#98A2B3",
+            }}
+          />
+          <Pressable
+            style={{
+              flexDirection: "row",
+              gap: 10,
+              alignItems: "center",
+            }}
+            onPress={() => setShowBalance(!showBalance)}
+          >
+            <MaterialCommunityIcons
+              name={showBalance ? "eye-off-outline" : "eye-outline"}
+              size={22}
+              color={"#6172F3"}
+            />
+            <Text
+              style={{
+                color: "#6172F3",
+                fontSize: 13,
+              }}
+            >
+              {showBalance ? "Hide" : "Show"}
+            </Text>
+          </Pressable>
+        </View>
+      </View>
     </>
   );
 }
