@@ -1,4 +1,4 @@
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import { RPH, RPW } from "@/utils/dimensions";
 import CashCard from "./CashCard";
@@ -15,7 +15,7 @@ export default function CashCardInfo({ cardNumber, name }: Props) {
       style={{
         backgroundColor: "#1D2939",
         flexDirection: "row",
-        paddingVertical: 10,
+        paddingVertical: 6,
         alignItems: "center",
       }}
     >
@@ -51,7 +51,7 @@ export default function CashCardInfo({ cardNumber, name }: Props) {
           Name : Pablo
         </Text>
       </View>
-      <View
+      <TouchableOpacity
         style={{
           justifyContent: "center",
           alignItems: "center",
@@ -69,7 +69,7 @@ export default function CashCardInfo({ cardNumber, name }: Props) {
           color="#fff"
           style={{}}
         />
-      </View>
+      </TouchableOpacity>
     </View>
   );
 }
