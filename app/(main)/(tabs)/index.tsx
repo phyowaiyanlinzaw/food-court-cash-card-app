@@ -9,6 +9,7 @@ import {
 import React, { useState } from "react";
 import { MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
 import { RPH, RPW } from "@/utils/dimensions";
+import Action from "@/components/ui/Action";
 
 export default function index() {
   const [showBalance, setShowBalance] = useState(true);
@@ -22,7 +23,7 @@ export default function index() {
       >
         <View
           style={{
-            padding: 20,
+            padding: 14,
             marginBottom: 20,
           }}
         >
@@ -157,9 +158,14 @@ export default function index() {
             style={{
               flexDirection: "row",
               marginTop: RPH(10),
+              justifyContent: "space-between",
+              marginHorizontal: RPW(3.5),
             }}
           >
-            <Text> Hi </Text>
+            <Action navigateTo="/" icon="hand-coin-outline" label="Top Up" />
+            <Action navigateTo="/" icon="cash" label="Withdraw" />
+            <Action navigateTo="/" icon="bank" label="Transfer" />
+            <Action navigateTo="/" icon="credit-card" label="Pay" />
           </View>
         </View>
       </SafeAreaView>
@@ -172,8 +178,8 @@ export default function index() {
           padding: 20,
           left: 0,
           right: 0,
-          transform: [{ translateX: RPW(5) }],
-          width: RPW(90),
+          transform: [{ translateX: RPW(3.5) }],
+          width: RPW(93),
         }}
       >
         <View
