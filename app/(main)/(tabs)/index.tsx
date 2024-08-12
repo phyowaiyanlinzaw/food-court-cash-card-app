@@ -5,11 +5,13 @@ import {
   Platform,
   Image,
   Pressable,
+  FlatList,
 } from "react-native";
 import React, { useState } from "react";
 import { MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
 import { RPH, RPW } from "@/utils/dimensions";
 import Action from "@/components/ui/Action";
+import { dummyTransactionHistory } from "@/utils/data";
 
 export default function index() {
   const [showBalance, setShowBalance] = useState(true);
@@ -166,6 +168,147 @@ export default function index() {
             <Action navigateTo="/" icon="cash" label="Withdraw" />
             <Action navigateTo="/" icon="bank" label="Transfer" />
             <Action navigateTo="/" icon="credit-card" label="Pay" />
+          </View>
+          <View
+            style={{
+              marginHorizontal: RPW(3.5),
+              marginTop: RPH(5),
+            }}
+          >
+            <View
+              style={{
+                flexDirection: "row",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
+            >
+              <Text
+                style={{
+                  color: "#F9FAFB",
+                  fontSize: 16,
+                  fontWeight: "700",
+                }}
+              >
+                Transaction History
+              </Text>
+              <Pressable onPress={() => {}}>
+                <Text
+                  style={{
+                    fontSize: 13,
+                    fontWeight: "500",
+                    color: "#6172F3",
+                  }}
+                >
+                  {" "}
+                  See All
+                </Text>
+              </Pressable>
+            </View>
+            <FlatList
+              style={{
+                marginTop: 20,
+                marginBottom: RPH(70),
+              }}
+              showsVerticalScrollIndicator={false}
+              ItemSeparatorComponent={() => (
+                <View
+                  style={{
+                    height: 1,
+                    backgroundColor: "#98A2B3",
+                    marginVertical: 8,
+                    opacity: 0.1,
+                  }}
+                />
+              )}
+              keyExtractor={(item) => item.id.toString()}
+              data={dummyTransactionHistory}
+              renderItem={({ item }) => (
+                <View
+                  style={{
+                    flexDirection: "row",
+                    alignItems: "center",
+                    padding: 15,
+                    gap: 10,
+                  }}
+                >
+                  <View
+                    style={{
+                      backgroundColor: "#1D2939",
+                      padding: 10,
+                      borderRadius: 100,
+                    }}
+                  >
+                    <MaterialCommunityIcons
+                      name={item.type === "expense" ? "arrow-down" : "arrow-up"}
+                      size={20}
+                      color={"#F9FAFB"}
+                      style={{
+                        opacity: 0.7,
+                      }}
+                    />
+                  </View>
+                  <View
+                    style={{
+                      width: "90%",
+                      gap: 5,
+                    }}
+                  >
+                    <View
+                      style={{
+                        flexDirection: "row",
+                        justifyContent: "space-between",
+                      }}
+                    >
+                      <Text
+                        style={{
+                          color: "#F9FAFB",
+                          fontSize: 13,
+                          fontWeight: "700",
+                        }}
+                      >
+                        {item.category}
+                      </Text>
+                      <Text
+                        style={{
+                          color: "#98A2B3",
+                          fontSize: 13,
+                          fontWeight: "500",
+                        }}
+                      >
+                        {item.type === "expense" ? " - " : " + "} {item.amount}{" "}
+                        THB
+                      </Text>
+                    </View>
+                    <View
+                      style={{
+                        flexDirection: "row",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                      }}
+                    >
+                      <Text
+                        style={{
+                          color: "#98A2B3",
+                          fontSize: 12,
+                          fontWeight: "500",
+                        }}
+                      >
+                        {item.note}
+                      </Text>
+                      <Text
+                        style={{
+                          color: "#98A2B3",
+                          fontSize: 12,
+                          fontWeight: "500",
+                        }}
+                      >
+                        {item.date}
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              )}
+            />
           </View>
         </View>
       </SafeAreaView>
